@@ -12,6 +12,12 @@
     <?php
         include 'conexion.php';
         include 'menu.php';
+
+    ?>
+        <div class="container">
+        <div class="row">
+        <div class="col-12">
+    <?php
         if($_GET["termino"] == ""){
     ?>
         <br>
@@ -21,7 +27,7 @@
         $sql = "SELECT * from usuarios WHERE nombre LIKE '%" . $_GET["termino"] . "%'";
         $usuarios = $conexion->query($sql);
         if($usuarios->num_rows == 0) {
-            echo "<div class='alert alert-danger'>No existen registros con ese término de búsqueda</div><br><br>";
+            echo "<br><div class='alert alert-danger'>No existen registros con ese término de búsqueda</div><br><br>";
         } else {
     ?>
         <table class="table table-hover">
@@ -52,6 +58,7 @@
         </table>
 
     <?php } } ?>
+                </div></div></div>
     <script src="js/bootstrap.js"></script>
 </body>
 </html>
